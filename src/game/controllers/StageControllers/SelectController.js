@@ -1,8 +1,6 @@
-import GameInputService from '../../services/GameInputService';
-
 export default class SelectController {
-  update(gameState) {
-    const selectedIndex = GameInputService.selectedCard();
+  update(gameState, input) {
+    const selectedIndex = input.selectedCard();
     const selectedCard = gameState.selectCard(selectedIndex);
     gameState.setCurrentEffect(selectedCard.getEffect());
   }

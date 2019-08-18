@@ -46,10 +46,10 @@ export default class GameController {
     return this.gameState;
   }
 
-  update() {
+  update(input) {
     this.gameState.setCurrentPhase(this.currentPhase.name);
 
-    this.currentPhase.stageController.update(this.gameState);
+    this.currentPhase.stageController.update(this.gameState, input);
     if (this.currentPhase.stageController.hasFinished(this.gameState)) {
       this.goToNextPhase();
     }
