@@ -11,6 +11,6 @@ export default class Card {
   }
 
   getConsequences() {
-    return this.getConsequences;
+    return this.consequences;
   }
 }

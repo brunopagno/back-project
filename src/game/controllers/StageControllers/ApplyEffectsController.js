@@ -1,17 +1,19 @@
-export default class FlipCardController {
+export default class ApplyEffectsController {
+  constructor() {
+    this.finished = false;
+  }
+
   update(gameState) {
-    let effect = gameState.getCurrentEffect();
-    if (!effect) {
-      effect = gameState.getSelectedCard().getEffect();
-      gameState.setCurrentEffect(effect);
-    }
+    const effect = gameState.getCurrentEffect();
 
     if (effect.hasScriptedAction()) {
-      const result = effect.executeScriptedAction(gameState);
+      this.finished = effect.executeScriptedAction(gameState);
+    } else {
+      this.finished = true;
     }
   }
 
   hasFinished() {
-    return false;
+    return this.finished;
   }
 }

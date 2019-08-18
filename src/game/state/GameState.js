@@ -21,6 +21,7 @@ export default class GameState {
   // Hand
   selectCard(index) {
     this.selectedCard = this.hand.cardAt(index);
+    return this.selectedCard;
   }
 
   getSelectedCard() {

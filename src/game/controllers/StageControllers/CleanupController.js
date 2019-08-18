@@ -1,4 +1,4 @@
-export default class FlipCardController {
+export default class CleanupController {
   update(gameState) {
     gameState.clearHand();
     gameState.clearSelectedCard();

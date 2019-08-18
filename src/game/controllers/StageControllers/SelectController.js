@@ -1,10 +1,10 @@
 import GameInputService from '../../services/GameInputService';
 
-export default class BeginRoundController {
+export default class SelectController {
   update(gameState) {
     const selectedIndex = GameInputService.selectedCard();
-
-    gameState.selectCard(selectedIndex);
+    const selectedCard = gameState.selectCard(selectedIndex);
+    gameState.setCurrentEffect(selectedCard.getEffect());
   }
 
   hasFinished(gameState) {

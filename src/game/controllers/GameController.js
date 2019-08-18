@@ -9,7 +9,6 @@ import DrawController from './StageControllers/DrawController';
 import SelectController from './StageControllers/SelectController';
 import ApplyEffectsController from './StageControllers/ApplyEffectsController';
 import FlipCardController from './StageControllers/FlipCardController';
-import ApplyConsequencesController from './StageControllers/ApplyConsequencesController';
 import CleanupController from './StageControllers/CleanupController';
 
 const BEGIN_ROUND = 'Begin Round';
@@ -26,7 +25,7 @@ const ROUND_STAGES = [
   { name: SELECT, stageController: new SelectController() },
   { name: APPLY_EFFECTS, stageController: new ApplyEffectsController() },
   { name: FLIP_CARD, stageController: new FlipCardController() },
-  { name: APPLY_CONSEQUENCES, stageController: new ApplyConsequencesController() },
+  { name: APPLY_CONSEQUENCES, stageController: new ApplyEffectsController() },
   { name: CLEANUP, stageController: new CleanupController() },
 ];
 

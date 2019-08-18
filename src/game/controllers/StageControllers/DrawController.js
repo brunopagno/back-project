@@ -1,6 +1,6 @@
 import DeckService from '../../services/DeckService';
 
-export default class FlipCardController {
+export default class DrawController {
   update(gameState) {
     let count = 0;
     while (count < gameState.hand.size) {
