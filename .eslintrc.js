@@ -14,5 +14,6 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    "class-methods-use-this": 0,
   },
 };

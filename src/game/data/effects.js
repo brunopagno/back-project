@@ -11,5 +11,6 @@ export const Loot = new Effect(
   (gameState) => {
     const magic = sample(Object.values(Magics));
     gameState.hero.addMagicToGrimoire(magic);
+    return true;
   },
 );

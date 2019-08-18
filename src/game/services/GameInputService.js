@@ -1,7 +1,5 @@
-class GameInputService {
+export default class GameInputService {
   static selectedCard() {
     return 1;
   }
 }
-
-export default GameInputService;

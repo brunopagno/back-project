@@ -1,4 +1,4 @@
-class Grimoire {
+export default class Grimoire {
   constructor() {
     this.activeMagics = [];
     this.otherMagics = [];
@@ -8,5 +8,3 @@ class Grimoire {
     this.otherMagics.push(magic);
   }
 }
-
-export default Grimoire;

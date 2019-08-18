@@ -1,4 +1,4 @@
-class GameState {
+export default class GameState {
   constructor(hero, initialMagics, hand) {
     this.hero = hero;
     initialMagics.forEach((magic) => {
@@ -6,8 +6,10 @@ class GameState {
     });
     this.hand = hand;
     this.currentPhase = undefined;
+    this.currentEffect = undefined;
   }
 
+  // Phase
   setCurrentPhase(currentPhase) {
     this.currentPhase = currentPhase;
   }
@@ -16,6 +18,7 @@ class GameState {
     return this.currentPhase;
   }
 
+  // Hand
   selectCard(index) {
     this.selectedCard = this.hand.cardAt(index);
   }
@@ -31,6 +34,17 @@ class GameState {
   clearSelectedCard() {
     this.selectedCard = undefined;
   }
-}
 
-export default GameState;
+  // Effect
+  getCurrentEffect() {
+    return this.currentEffect;
+  }
+
+  setCurrentEffect(effect) {
+    this.currentEffect = effect;
+  }
+
+  clearCurrentEffect() {
+    this.currentEffect = undefined;
+  }
+}

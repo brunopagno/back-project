@@ -1,4 +1,4 @@
-class Hand {
+export default class Hand {
   constructor(size) {
     this.cards = [];
     this.size = size;
@@ -16,5 +16,3 @@ class Hand {
     this.cards = [];
   }
 }
-
-export default Hand;

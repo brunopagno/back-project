@@ -4,7 +4,13 @@ import {
 } from '../data/magics';
 import Hand from '../entities/Hand';
 import GameState from '../state/GameState';
-import * as StageControllers from './StageControllers';
+import BeginRoundController from './StageControllers/BeginRoundController';
+import DrawController from './StageControllers/DrawController';
+import SelectController from './StageControllers/SelectController';
+import ApplyEffectsController from './StageControllers/ApplyEffectsController';
+import FlipCardController from './StageControllers/FlipCardController';
+import ApplyConsequencesController from './StageControllers/ApplyConsequencesController';
+import CleanupController from './StageControllers/CleanupController';
 
 const BEGIN_ROUND = 'Begin Round';
 const DRAW = 'Draw';
@@ -15,16 +21,16 @@ const APPLY_CONSEQUENCES = 'Apply Consequences';
 const CLEANUP = 'End Round';
 
 const ROUND_STAGES = [
-  { name: BEGIN_ROUND, stageController: StageControllers.beginRound },
-  { name: DRAW, stageController: StageControllers.draw },
-  { name: SELECT, stageController: StageControllers.select },
-  { name: APPLY_EFFECTS, stageController: StageControllers.applyEffects },
-  { name: FLIP_CARD, stageController: StageControllers.flipCard },
-  { name: APPLY_CONSEQUENCES, stageController: StageControllers.applyConsequences },
-  { name: CLEANUP, stageController: StageControllers.cleanup },
+  { name: BEGIN_ROUND, stageController: new BeginRoundController() },
+  { name: DRAW, stageController: new DrawController() },
+  { name: SELECT, stageController: new SelectController() },
+  { name: APPLY_EFFECTS, stageController: new ApplyEffectsController() },
+  { name: FLIP_CARD, stageController: new FlipCardController() },
+  { name: APPLY_CONSEQUENCES, stageController: new ApplyConsequencesController() },
+  { name: CLEANUP, stageController: new CleanupController() },
 ];
 
-class GameController {
+export default class GameController {
   constructor() {
     this.gameState = new GameState(
       Hero,
@@ -44,7 +50,8 @@ class GameController {
   update() {
     this.gameState.setCurrentPhase(this.currentPhase.name);
 
-    if (this.currentPhase.stageController(this.gameState)) {
+    this.currentPhase.stageController.update(this.gameState);
+    if (this.currentPhase.stageController.hasFinished(this.gameState)) {
       this.goToNextPhase();
     }
   }
@@ -58,5 +65,3 @@ class GameController {
     }
   }
 }
-
-export default GameController;

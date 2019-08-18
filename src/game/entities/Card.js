@@ -1,4 +1,4 @@
-class Card {
+export default class Card {
   constructor(name, description, effect, consequences) {
     this.name = name;
     this.description = description;
@@ -14,5 +14,3 @@ class Card {
     return this.getConsequences;
   }
 }
-
-export default Card;

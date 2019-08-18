@@ -1,7 +1,7 @@
 import GameController from './game/controllers/GameController';
 import GameView from './view/GameView';
 
-class Back {
+export default class Back {
   init() {
     this.gameController = new GameController();
   }
@@ -18,5 +18,3 @@ class Back {
     this.gameView.draw(this.gameController.getGameState());
   }
 }
-
-export default Back;

@@ -1,4 +1,4 @@
-class GameView {
+export default class GameView {
   constructor(id) {
     this.rootElement = document.getElementById(id);
   }
@@ -9,5 +9,3 @@ class GameView {
     this.rootElement.appendChild(nextState);
   }
 }
-
-export default GameView;

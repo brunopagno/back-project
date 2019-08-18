@@ -1,6 +1,6 @@
 import Grimoire from './Grimoire';
 
-class Hero {
+export default class Hero {
   constructor(health, healthRegenRate, mana, manaRegenRate) {
     this.health = health;
     this.currentHealth = health;
@@ -16,5 +16,3 @@ class Hero {
     this.grimoire.addMagic(magic);
   }
 }
-
-export default Hero;
