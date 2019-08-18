@@ -29,7 +29,7 @@ class GameState {
   }
 
   clearSelectedCard() {
-    this.selectCard = undefined;
+    this.selectedCard = undefined;
   }
 }
 
