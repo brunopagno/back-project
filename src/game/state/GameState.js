@@ -6,6 +6,7 @@ export default class GameState {
     });
     this.hand = hand;
     this.currentPhase = undefined;
+    this.selectedCard = undefined;
     this.currentEffect = undefined;
   }
 

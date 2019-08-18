@@ -3,7 +3,7 @@ import * as Effects from './effects';
 
 export const Move = new Card(
   'Move',
-  'It is not time to waste time.',
+  'Now is not the time to waste time.',
   Effects.Nothing,
   Effects.Nothing,
 );
