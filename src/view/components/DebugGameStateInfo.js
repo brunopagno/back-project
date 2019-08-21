@@ -13,8 +13,8 @@ export default class DebugGameStateInfo {
 
   stringifyGameState(gameState) {
     return `
-      CurrentPhase: <br />
-      - name: ${gameState.getCurrentPhase()} </br>
+      CurrentStage: <br />
+      - name: ${gameState.getCurrentStage().stageName()} </br>
 
       <hr />
 

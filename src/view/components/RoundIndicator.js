@@ -7,6 +7,6 @@ export default class RoundIndicator {
   }
 
   draw(gameState) {
-    this.element.innerHTML = gameState.getCurrentPhase();
+    this.element.innerHTML = gameState.getCurrentStage().stageName();
   }
 }

@@ -1,11 +1,13 @@
 export default class CleanupController {
+  stageName() {
+    return 'End Round';
+  }
+
   update(gameState) {
     gameState.clearHand();
     gameState.clearSelectedCard();
     gameState.clearCurrentEffect();
-  }
 
-  hasFinished() {
-    return true;
+    return gameState.getInitialStateController();
   }
 }

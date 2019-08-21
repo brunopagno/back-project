@@ -11,6 +11,10 @@ class Input {
   selectedCard() {
     return 1;
   }
+
+  selectedGrimoireMagic() {
+    return 0;
+  }
 }
 
 const input = new Input();

@@ -15,4 +15,8 @@ export default class Hero {
   addMagicToGrimoire(magic) {
     this.grimoire.addMagic(magic);
   }
+
+  getMagicFromGrimoire(index) {
+    this.grimoire.getMagic(index);
+  }
 }

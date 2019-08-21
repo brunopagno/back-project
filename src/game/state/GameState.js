@@ -1,22 +1,31 @@
 export default class GameState {
-  constructor(hero, initialMagics, hand) {
+  constructor(hero, initialMagics, hand, initialStateController) {
     this.hero = hero;
     initialMagics.forEach((magic) => {
       this.hero.addMagicToGrimoire(magic);
     });
     this.hand = hand;
-    this.currentPhase = undefined;
+    this.initialStateController = initialStateController;
+    this.currentStage = undefined;
     this.selectedCard = undefined;
     this.currentEffect = undefined;
   }
 
-  // Phase
-  setCurrentPhase(currentPhase) {
-    this.currentPhase = currentPhase;
+  getHero() {
+    return this.hero;
   }
 
-  getCurrentPhase() {
-    return this.currentPhase;
+  getInitialStateController() {
+    return this.initialStateController;
+  }
+
+  // Phase
+  setCurrentStage(currentStage) {
+    this.currentStage = currentStage;
+  }
+
+  getCurrentStage() {
+    return this.currentStage;
   }
 
   // Hand

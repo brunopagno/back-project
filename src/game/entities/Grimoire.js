@@ -1,10 +1,14 @@
 export default class Grimoire {
-  constructor() {
+  constructor(magics) {
     this.activeMagics = [];
-    this.otherMagics = [];
+    this.otherMagics = magics || [];
   }
 
   addMagic(magic) {
     this.otherMagics.push(magic);
+  }
+
+  getMagic(index) {
+    return this.otherMagics[index];
   }
 }
