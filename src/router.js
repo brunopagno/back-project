@@ -1,7 +1,23 @@
-/* eslint-disable camelcase */
+import Back from './back';
+import GameController from './game/controllers/GameController';
+
 class Router {
-  debug__advanceStage() {
-    console.log('should be advancing stages here :)');
+  newGame() {
+    GameController.newGame();
+  }
+
+  changeView(view) {
+    Back.changeView(view, 'back');
+  }
+
+  drawCards() {
+    GameController.drawCards();
+    Back.draw();
+  }
+
+  discardHand() {
+    GameController.discardHand();
+    Back.draw();
   }
 }
 

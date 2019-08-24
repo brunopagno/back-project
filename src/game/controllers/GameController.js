@@ -2,7 +2,11 @@ import GameState from '../state/GameState';
 import { getRandomCard } from '../util';
 import * as CardList from '../data/cards';
 
-export default class GameController {
+class GameController {
+  newGame() {
+    GameState.initialize();
+  }
+
   beginNewRound() {
     GameState.hand.discardAll();
     GameState.hand.clearSelection();
@@ -17,6 +21,10 @@ export default class GameController {
 
   selectCard(index) {
     GameState.hand.selectCard(index);
+  }
+
+  discardHand() {
+    GameState.hand.discardAll();
   }
 
   activateCard() {
@@ -34,3 +42,6 @@ export default class GameController {
     GameState.initialize();
   }
 }
+
+const instance = new GameController();
+export default instance;

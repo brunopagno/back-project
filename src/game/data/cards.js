@@ -25,6 +25,6 @@ export const Loot = new Card(
 export const Monster = new Card(
   'Monster',
   'A violent, yet respectful, duel between you and a creature that does not like you.',
-  Actions.Battle,
+  Actions.StartBattle,
   Actions.Nothing,
 );
