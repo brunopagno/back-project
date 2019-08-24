@@ -1,4 +1,4 @@
-import Input from '../../input/Input';
+import Router from '../../router';
 
 export default class DebugAdvanceRound {
   constructor(rootElement) {
@@ -11,6 +11,6 @@ export default class DebugAdvanceRound {
   }
 
   action() {
-    Input.debug__forceLoop();
+    Router.debug__advanceStage();
   }
 }

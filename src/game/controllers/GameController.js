@@ -1,32 +1,36 @@
 import GameState from '../state/GameState';
-import BeginRoundController from './GameControllers/BeginRoundController';
-import Hero from '../data/hero';
-import { MagicPunch } from '../data/magics';
-import Hand from '../entities/Hand';
+import { getRandomCard } from '../util';
+import * as CardList from '../data/cards';
 
 export default class GameController {
-  constructor() {
-    this.gameState = new GameState(
-      Hero,
-      [
-        MagicPunch,
-      ],
-      new Hand(3),
-      new BeginRoundController()
-    );
-
-    this.currentStage = this.gameState.getInitialStateController();
+  beginNewRound() {
+    GameState.hand.discardAll();
+    GameState.hand.clearSelection();
   }
 
-  getGameState() {
-    return this.gameState;
-  }
-
-  update(input) {
-    this.gameState.setCurrentStage(this.currentStage);
-    const nextStage = this.currentStage.update(this.gameState, input);
-    if (nextStage) {
-      this.currentStage = nextStage;
+  drawCards() {
+    for (let cardsInHand = 0; cardsInHand < GameState.hand.size; cardsInHand += 1) {
+      const card = getRandomCard(CardList);
+      GameState.hand.addCard(card);
     }
+  }
+
+  selectCard(index) {
+    GameState.hand.selectCard(index);
+  }
+
+  activateCard() {
+    const result = GameState.hand.selectedCard.executeFrontAction();
+    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+  }
+
+  activateBackOfCard() {
+    const result = GameState.hand.selectedCard.executeBackAction();
+    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+  }
+
+  gameOver() {
+    console.log('GAME OVER =/');
+    GameState.initialize();
   }
 }

@@ -7,6 +7,7 @@ export default class RoundIndicator {
   }
 
   draw(gameState) {
-    this.element.innerHTML = gameState.getCurrentStage().stageName();
+    console.log({ gameState });
+    this.element.innerHTML = 'OPEN CONSOLE';
   }
 }

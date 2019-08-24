@@ -1,5 +1,15 @@
+/* eslint-disable no-multi-spaces */
 import Hero from '../entities/Hero';
+import { MagicPunch } from './magics';
 
-const hero = new Hero(100, 5, 100, 20);
+export default new Hero(
+  100,      // health
+  5,        // health regen rate
+  100,      // mana
+  20,       // mana regen rate
+  [         // default magics
+    MagicPunch,
+  ],
+);
 
-export default hero;
+export const HandSize = 3;

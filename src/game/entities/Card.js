@@ -1,16 +1,27 @@
+import { sample } from '../util';
+
 export default class Card {
-  constructor(name, description, effect, consequences) {
+  constructor(name, description, front, back) {
     this.name = name;
     this.description = description;
-    this.effect = effect;
-    this.consequences = consequences;
+    this.front = front;
+    this.back = back;
   }
 
-  getEffect() {
-    return this.effect;
+  executeFrontAction(gameState) {
+    const action = this.getAction(this.front);
+    return action(gameState);
   }
 
-  getConsequences() {
-    return this.consequences;
+  executeBackAction(gameState) {
+    const action = this.getAction(this.back);
+    return action(gameState);
+  }
+
+  getAction(side) {
+    if (Array.isArray(side)) {
+      return sample(side);
+    }
+    return side;
   }
 }

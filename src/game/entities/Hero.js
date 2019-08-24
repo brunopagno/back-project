@@ -1,15 +1,15 @@
 import Grimoire from './Grimoire';
+import Living from './Living';
 
-export default class Hero {
-  constructor(health, healthRegenRate, mana, manaRegenRate) {
-    this.health = health;
-    this.currentHealth = health;
+export default class Hero extends Living {
+  constructor(health, healthRegenRate, mana, manaRegenRate, initialMagics) {
+    super(health, mana, new Grimoire());
     this.healthRegenRate = healthRegenRate;
-    this.mana = mana;
-    this.currentMana = mana;
     this.manaRegenRate = manaRegenRate;
     this.experience = 0;
-    this.grimoire = new Grimoire();
+    initialMagics.forEach((magic) => {
+      this.addMagicToGrimoire(magic);
+    });
   }
 
   addMagicToGrimoire(magic) {
@@ -18,5 +18,9 @@ export default class Hero {
 
   getMagicFromGrimoire(index) {
     this.grimoire.getMagic(index);
+  }
+
+  takeDamage(damage) {
+    this.currentHealth -= damage;
   }
 }

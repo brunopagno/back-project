@@ -1,5 +1,5 @@
-import Back from './back';
+import GameView from './view/GameView';
 import './css/back.css';
 
-Back.initialize('back');
-Back.loop();
+GameView.initialize('back');
+GameView.draw();

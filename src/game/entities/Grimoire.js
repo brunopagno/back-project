@@ -1,14 +1,22 @@
 export default class Grimoire {
   constructor(magics) {
-    this.activeMagics = [];
-    this.otherMagics = magics || [];
+    this.magics = magics || [];
+    this.selectedMagic = undefined;
   }
 
   addMagic(magic) {
-    this.otherMagics.push(magic);
+    this.magics.push(magic);
   }
 
   getMagic(index) {
-    return this.otherMagics[index];
+    return this.magics[index];
+  }
+
+  selectMagic(index) {
+    this.selectedMagic = this.magics[index];
+  }
+
+  clearSelection() {
+    this.selectedMagic = undefined;
   }
 }

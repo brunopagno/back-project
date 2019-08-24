@@ -1,29 +1,24 @@
-import RoundIndicator from './components/RoundIndicator';
+import GameState from '../game/state/GameState';
+import StageIndicator from './components/StageIndicator';
 import DebugAdvanceRound from './components/DebugAdvanceRound';
-import DebugGameStateInfo from './components/DebugGameStateInfo';
 
 const DEBUG = true;
 
-export default class GameView {
-  constructor(id) {
+class GameView {
+  initialize(id) {
     this.rootElement = document.getElementById(id);
 
     if (DEBUG) {
       this.debugAdvanceRound = new DebugAdvanceRound(this.rootElement);
     }
 
-    this.roundIndicator = new RoundIndicator(this.rootElement);
-
-    if (DEBUG) {
-      this.debugGameStateInfo = new DebugGameStateInfo(this.rootElement);
-    }
+    this.stageIndicator = new StageIndicator(this.rootElement);
   }
 
-  draw(gameState) {
-    if (DEBUG) {
-      this.debugGameStateInfo.draw(gameState);
-    }
-
-    this.roundIndicator.draw(gameState);
+  draw() {
+    this.stageIndicator.draw(GameState);
   }
 }
+
+const instance = new GameView();
+export default instance;
