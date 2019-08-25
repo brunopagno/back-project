@@ -29,18 +29,11 @@ class GameView {
     this.gameElement.appendChild(leftColumn);
     this.gameElement.appendChild(rightColumn);
     this.rootElement.appendChild(this.gameElement);
-
-    const drawCards = createElement('button', '', '', 'Draw Cards');
-    drawCards.onclick = Router.drawCards;
-    this.rootElement.appendChild(drawCards);
-    const discardHand = createElement('button', '', '', 'Discard Hand');
-    discardHand.onclick = Router.discardHand;
-    this.rootElement.appendChild(discardHand);
   }
 
   draw() {
     console.log({ GameState });
-    this.caveView.draw();
+    this.caveView.draw(GameState);
     this.handView.draw(GameState.hand.cards);
     this.grimoireView.draw(GameState.hero.grimoire.magics);
   }

@@ -13,6 +13,10 @@ export default class Hand {
     return this.cards[index];
   }
 
+  hasCards() {
+    return this.cards && this.cards.length > 0;
+  }
+
   discardAll() {
     this.cards = [];
   }
