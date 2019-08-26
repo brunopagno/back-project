@@ -1,8 +1,10 @@
 import { createElement } from '../ViewHelper';
+import CardView from './CardView';
 
 export default class HandView {
   constructor(baseElement) {
     this.baseElement = baseElement;
+    this.className = 'hand-card';
   }
 
   draw(cards) {
@@ -12,10 +14,10 @@ export default class HandView {
     const container = createElement('div', '', 'hand-view-container');
 
     if (cards && cards.length > 0) {
-      cards.forEach((card) => {
-        const cardElement = createElement('div', '', 'hand-card');
-        cardElement.appendChild(createElement('div', '', 'hand-card-title', card.name));
-        cardElement.appendChild(createElement('div', '', 'hand-card-description', card.description));
+      cards.forEach((card, index) => {
+        const cardElement = createElement('div', '', this.className);
+        const cardView = new CardView(cardElement, index);
+        cardView.draw(this.className, card.name, card.description);
         container.appendChild(cardElement);
       });
     } else {

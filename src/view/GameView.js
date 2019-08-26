@@ -1,7 +1,7 @@
 import Router from '../router';
 import CaveView from './components/CaveView';
 import HandView from './components/HandView';
-import GrimoireView from './components/GrimoireView';
+import HeroView from './components/HeroView';
 import GameState from '../game/state/GameState';
 import { createElement } from './ViewHelper';
 
@@ -22,9 +22,9 @@ class GameView {
     leftColumn.appendChild(this.handElement);
     this.handView = new HandView(this.handElement);
 
-    this.grimoireElement = createElement('div', 'grimoire-view');
-    rightColumn.appendChild(this.grimoireElement);
-    this.grimoireView = new GrimoireView(this.grimoireElement);
+    this.heroElement = createElement('div', 'hero-view');
+    rightColumn.appendChild(this.heroElement);
+    this.heroView = new HeroView(this.heroElement);
 
     this.gameElement.appendChild(leftColumn);
     this.gameElement.appendChild(rightColumn);
@@ -35,7 +35,7 @@ class GameView {
     console.log({ GameState });
     this.caveView.draw(GameState);
     this.handView.draw(GameState.hand.cards);
-    this.grimoireView.draw(GameState.hero.grimoire.magics);
+    this.heroView.draw(GameState.hero);
   }
 }
 

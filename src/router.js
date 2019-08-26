@@ -19,6 +19,11 @@ class Router {
     GameController.discardHand();
     Back.draw();
   }
+
+  selectCard(index) {
+    GameController.selectCard(index);
+    Back.draw();
+  }
 }
 
 const instance = new Router();

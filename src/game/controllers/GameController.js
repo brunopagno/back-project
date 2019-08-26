@@ -20,7 +20,7 @@ class GameController {
   }
 
   selectCard(index) {
-    GameState.hand.selectCard(index);
+    GameState.hand.select(index);
   }
 
   discardHand() {

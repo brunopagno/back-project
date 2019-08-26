@@ -1,4 +1,6 @@
 :root {
+  --theme-border-color: #3147af;
+
   --card-border-color: black;
   --card-body-color: darkgray;
   --card-text-color: black;
@@ -62,10 +64,26 @@ body {
   border-bottom: 1px solid var(--card-border-color);
 }
 
-#grimoire-view {
+#hero-view {
   border: 4px solid #a5d3e2;
   background-color: #a5d3e29a;
   padding: 12px;
+}
+#status-view {
+  display: block;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--theme-border-color);
+  font-weight: bold;
+}
+.hero-health {
+  color: #912525;
+}
+.hero-mana {
+  color: #572591;
+}
+#grimoire-view {
+  margin-top: 8px;
+  display: block;
 }
 .grimoire-magic {
   border: 4px solid var(--card-border-color);
