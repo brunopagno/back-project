@@ -34,7 +34,7 @@ class GameView {
   draw() {
     console.log({ GameState });
     this.caveView.draw(GameState);
-    this.handView.draw(GameState.hand.cards);
+    this.handView.draw(GameState.hand);
     this.heroView.draw(GameState.hero);
   }
 }

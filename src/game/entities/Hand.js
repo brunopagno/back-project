@@ -2,7 +2,7 @@ export default class Hand {
   constructor(size) {
     this.cards = [];
     this.size = size;
-    this.selectedCard = undefined;
+    this.selectedIndex = undefined;
   }
 
   addCard(card) {
@@ -22,10 +22,18 @@ export default class Hand {
   }
 
   select(index) {
-    this.selectedCard = this.cardAt(index);
+    this.selectedIndex = index;
+  }
+
+  hasSelectedCard() {
+    return this.selectedIndex !== undefined;
+  }
+
+  getSelectedCard() {
+    return this.cardAt(this.selectedIndex);
   }
 
   clearSelection() {
-    this.selectedCard = undefined;
+    this.selectedIndex = undefined;
   }
 }

@@ -7,15 +7,18 @@ export default class HandView {
     this.className = 'hand-card';
   }
 
-  draw(cards) {
+  draw(hand) {
     this.baseElement.innerHTML = '';
 
     this.baseElement.appendChild(createElement('h3', '', '', 'Hand'));
     const container = createElement('div', '', 'hand-view-container');
 
-    if (cards && cards.length > 0) {
-      cards.forEach((card, index) => {
+    if (hand.cards && hand.cards.length > 0) {
+      hand.cards.forEach((card, index) => {
         const cardElement = createElement('div', '', this.className);
+        if (hand.hasSelectedCard() && index !== hand.selectedIndex) {
+          cardElement.setAttribute('disabled', true);
+        }
         const cardView = new CardView(cardElement, index);
         cardView.draw(this.className, card.name, card.description);
         container.appendChild(cardElement);
