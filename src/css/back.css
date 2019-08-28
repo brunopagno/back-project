@@ -30,14 +30,14 @@ img {
 
 #game-view {
   display: flex;
-  min-width: 728px;
+  min-width: 860px;
 }
 #left-column {
-  flex: 6;
+  flex: 5;
   padding: 6px;
 }
 #right-column {
-  flex: 4;
+  flex: 5;
   padding: 6px;
 }
 
