@@ -24,6 +24,16 @@ class Router {
     GameController.selectCard(index);
     Back.draw();
   }
+
+  activateCard() {
+    GameController.activateCard();
+    Back.draw();
+  }
+
+  activateBackOfCard() {
+    GameController.activateBackOfCard();
+    Back.draw();
+  }
 }
 
 const instance = new Router();

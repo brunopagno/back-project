@@ -6,5 +6,10 @@ export function createElement(tag, id, className, text) {
   return element;
 }
 
-export function TOMANOCU() {
+export function createImage(id, className, src) {
+  const element = document.createElement('img');
+  element.id = id || '';
+  element.className = className || '';
+  element.src = src || '';
+  return element;
 }

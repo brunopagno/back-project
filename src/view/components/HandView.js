@@ -20,7 +20,7 @@ export default class HandView {
           cardElement.setAttribute('disabled', true);
         }
         const cardView = new CardView(cardElement, index);
-        cardView.draw(this.className, card.name, card.description);
+        cardView.draw(this.className, card.name, card.image);
         container.appendChild(cardElement);
       });
     } else {

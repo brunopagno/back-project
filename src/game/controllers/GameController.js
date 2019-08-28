@@ -28,12 +28,12 @@ class GameController {
   }
 
   activateCard() {
-    const result = GameState.hand.getSelectedCard().executeFrontAction();
+    const result = GameState.hand.getSelectedCard().executeFrontAction(GameState);
     console.log('FIGURE OUT WHAT TO DO WITH: ', result);
   }
 
   activateBackOfCard() {
-    const result = GameState.hand.getSelectedCard().executeBackAction();
+    const result = GameState.hand.getSelectedCard().executeBackAction(GameState);
     console.log('FIGURE OUT WHAT TO DO WITH: ', result);
   }
 

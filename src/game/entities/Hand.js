@@ -19,6 +19,7 @@ export default class Hand {
 
   discardAll() {
     this.cards = [];
+    this.selectedIndex = undefined;
   }
 
   select(index) {

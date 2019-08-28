@@ -1,4 +1,4 @@
-import { createElement } from '../ViewHelper';
+import { createElement, createImage } from '../ViewHelper';
 import Router from '../../router';
 
 export default class CardView {
@@ -7,11 +7,11 @@ export default class CardView {
     this.indexId = indexId;
   }
 
-  draw(classNamePrefix, name, description) {
+  draw(classNamePrefix, name, image) {
     this.baseElement.innerHTML = '';
 
     this.baseElement.appendChild(createElement('div', '', `${classNamePrefix}-title`, name));
-    this.baseElement.appendChild(createElement('div', '', `${classNamePrefix}-description`, description));
+    this.baseElement.appendChild(createImage('', `${classNamePrefix}-image`, image));
 
     this.baseElement.onclick = () => Router.selectCard(this.indexId);
   }
