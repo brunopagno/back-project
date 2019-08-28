@@ -67,3 +67,26 @@
   border: 2px solid #e4e4e4;
   background: #e4e4e459;
 }
+
+#cave-selected-back {
+  display: flex;
+  flex-direction: column;
+  border: 12px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+  color: var(--card-text-color);
+  padding: 8px;
+  margin: 4px;
+  max-width: var(--cave-card-width);
+  cursor: pointer;
+}
+.cave-selected-back-description {
+  padding-bottom: 4px;
+  border-top: 2px solid var(--card-border-color);
+  border-bottom: 2px solid var(--card-border-color);
+}
+.cave-action-back-description {
+  padding: 12px;
+  text-align: right;
+  color: var(--card-text-color);
+  font-weight: bold;
+}

@@ -5,8 +5,24 @@ class GameState {
   initialize() {
     this.hero = Hero;
     this.hand = new Hand(HandSize);
-    this.action = undefined;
+    this.frontAction = undefined;
     this.battle = undefined;
+  }
+
+  hasFrontAction() {
+    return !!this.frontAction;
+  }
+
+  setFrontAction(frontAction) {
+    this.frontAction = frontAction;
+  }
+
+  hasBackAction() {
+    return !!this.backAction;
+  }
+
+  setBackAction(backAction) {
+    this.backAction = backAction;
   }
 }
 

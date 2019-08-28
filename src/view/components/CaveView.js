@@ -1,7 +1,7 @@
 import { createElement, createButton } from '../ViewHelper';
 import Router from '../../router';
-// import MenuView from './MenuView';
 import SelectedCardView from './SelectedCardView';
+import SelectedBackView from './SelectedBackView';
 
 export default class CaveView {
   constructor(baseElement) {
@@ -18,19 +18,23 @@ export default class CaveView {
     }
 
     if (gameState.hand.hasSelectedCard()) {
-      const selectedCardElement = createElement('div', 'cave-selected-card');
+      if (gameState.hand.hasSelectedCard && !gameState.hasBackAction()) {
+        const selectedCardElement = createElement('div', 'cave-selected-card');
 
-      // if front draw this
-      const selectedCardView = new SelectedCardView(selectedCardElement);
-      this.baseElement.appendChild(selectedCardElement);
-      selectedCardView.draw(gameState.hand.getSelectedCard());
+        const selectedCardView = new SelectedCardView(selectedCardElement);
+        this.baseElement.appendChild(selectedCardElement);
+        selectedCardView.draw(gameState.hand.getSelectedCard());
 
-      // if back then draw differently
-      // here code for back
+        if (gameState.frontAction && !gameState.frontAction.finished) {
+          this.baseElement.appendChild(createElement('div', '', 'cave-action-description', gameState.frontAction.action.description));
+          this.baseElement.appendChild(createButton('', 'cave-action-ok', 'Continue', Router.activateCard));
+        }
+      } else if (gameState.backAction) {
+        const selectedBackElement = createElement('div', 'cave-selected-back');
 
-      if (gameState.action) {
-        this.baseElement.appendChild(createElement('div', '', 'cave-action-description', gameState.action.description));
-        this.baseElement.appendChild(createButton('', 'cave-action-ok', 'Continue', Router.activateCard));
+        const selectedBackView = new SelectedBackView(selectedBackElement);
+        this.baseElement.appendChild(selectedBackElement);
+        selectedBackView.draw(gameState.hand.getSelectedCard());
       }
     }
   }

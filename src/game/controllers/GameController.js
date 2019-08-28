@@ -1,4 +1,5 @@
 import GameState from '../state/GameState';
+import ActiveAction from '../entities/ActiveAction';
 import { getRandomCard } from '../util';
 import * as CardList from '../data/cards';
 
@@ -20,23 +21,27 @@ class GameController {
   }
 
   selectCard(index) {
-    if (!GameState.action) {
+    if (!GameState.hasFrontAction()) {
       GameState.hand.select(index);
     }
   }
 
   commitToCard() {
-    GameState.action = GameState.hand.getSelectedCard().front;
+    GameState.setFrontAction(new ActiveAction(GameState.hand.getSelectedCard().front));
   }
 
   activateCard() {
     const result = GameState.hand.getSelectedCard().executeFrontAction(GameState);
-    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+    GameState.frontAction.finished = true;
+    this.commitToCardBack();
+  }
+
+  commitToCardBack() {
+    GameState.setBackAction(new ActiveAction(GameState.hand.getSelectedCard().back));
   }
 
   activateBackOfCard() {
     const result = GameState.hand.getSelectedCard().executeBackAction(GameState);
-    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
   }
 
   discardHand() {
