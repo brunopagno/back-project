@@ -2,6 +2,9 @@
 import GameView from './view/GameView';
 import Back from './back';
 import './css/back.css';
+import './css/cave.css';
+import './css/grimoire.css';
+import './css/hand.css';
 import './img/slime.png';
 
 // Back.changeView(OpeningView, 'back');

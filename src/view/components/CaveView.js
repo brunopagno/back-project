@@ -1,5 +1,6 @@
 import { createElement } from '../ViewHelper';
-import MenuView from './MenuView';
+import Router from '../../router';
+// import MenuView from './MenuView';
 import SelectedCardView from './SelectedCardView';
 
 export default class CaveView {
@@ -10,10 +11,11 @@ export default class CaveView {
   draw(gameState) {
     this.baseElement.innerHTML = '';
 
-    const menuElement = createElement('div', 'menu-view');
-    this.menuView = new MenuView(menuElement);
-    this.baseElement.appendChild(menuElement);
-    this.menuView.draw(gameState);
+    if (!gameState.hand.hasCards()) {
+      const caveButton = createElement('div', 'cave-button', '', 'Advance!');
+      caveButton.onclick = Router.drawCards;
+      this.baseElement.appendChild(caveButton);
+    }
 
     if (gameState.hand.hasSelectedCard()) {
       const selectedCardElement = createElement('div', 'cave-selected-card');
