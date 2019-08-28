@@ -1,12 +1,10 @@
-import SlimeImage from '../../img/slime.png';
-
 import { sample } from '../util';
 
 export default class Card {
-  constructor(name, description, front, back) {
+  constructor(name, description, image, front, back) {
     this.name = name;
     this.description = description;
-    this.image = SlimeImage;
+    this.image = image;
     this.front = front;
     this.back = back;
   }
@@ -14,13 +12,13 @@ export default class Card {
   executeFrontAction(gameState) {
     console.log(`EXECUTE FRONT OF ${this.name}`);
     const action = this.getAction(this.front);
-    return action(gameState);
+    return action.script(gameState);
   }
 
   executeBackAction(gameState) {
     console.log(`EXECUTE BACK OF ${this.name}`);
     const action = this.getAction(this.back);
-    return action(gameState);
+    return action.script(gameState);
   }
 
   getAction(side) {

@@ -11,7 +11,9 @@ export default class CardView {
     this.baseElement.innerHTML = '';
 
     this.baseElement.appendChild(createElement('div', '', `${classNamePrefix}-title`, name));
-    this.baseElement.appendChild(createImage('', `${classNamePrefix}-image`, image));
+    const imageHolderElement = createElement('div', '', `${classNamePrefix}-image-holder`);
+    imageHolderElement.appendChild(createImage('', `${classNamePrefix}-image`, image));
+    this.baseElement.appendChild(imageHolderElement);
 
     this.baseElement.onclick = () => Router.selectCard(this.indexId);
   }

@@ -4,11 +4,11 @@
 }
 .grimoire-magic {
   display: inline-block;
-  border: 4px solid var(--card-border-color);
-  border-radius: 12px;
-  background-color: var(--card-body-color);
+  border: 8px solid var(--magic-border-color);
+  border-radius: 32px;
+  background-color: var(--magic-body-color);
   color: var(--card-text-color);
-  padding: 8px;
+  padding: 16px;
   margin: 4px;
   font-size: 0.7em;
   max-width: var(--card-width);
@@ -17,11 +17,12 @@
 .grimoire-magic-title {
   font-size: 1.2em;
   font-weight: bold;
-  border-bottom: 1px solid var(--card-border-color);
+  border-bottom: 1px solid var(--magic-border-color);
+  text-transform: uppercase;
 }
 .grimoire-magic-description {  
-  border-bottom: 1px solid var(--card-border-color);
+  border-bottom: 1px solid var(--magic-border-color);
 }
 .grimoire-magic-action {
-  border-bottom: 1px solid var(--card-border-color);
+  border-bottom: 1px solid var(--magic-border-color);
 }
