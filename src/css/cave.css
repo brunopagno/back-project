@@ -1,5 +1,6 @@
 #cave-view {
   padding: 12px;
+  min-height: 320px;
 }
 #cave-selected-card {
   display: flex;
@@ -26,6 +27,28 @@
 }
 .cave-selected-card-description {
   padding-bottom: 4px;
+  border-top: 2px solid var(--card-border-color);
+  border-bottom: 2px solid var(--card-border-color);
+}
+.cave-selected-card-action {
+  padding-bottom: 4px;
+}
+.cave-action-description {
+  padding: 12px;
+  text-align: right;
+  border: 12px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+  color: var(--card-text-color);
+  font-weight: bold;
+}
+.cave-action-ok {
+  text-align: right;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 1.3em;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 12px;
 }
 
 #cave-button {

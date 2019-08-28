@@ -25,6 +25,11 @@ class Router {
     Back.draw();
   }
 
+  commitToCard() {
+    GameController.commitToCard();
+    Back.draw();
+  }
+
   activateCard() {
     GameController.activateCard();
     Back.draw();

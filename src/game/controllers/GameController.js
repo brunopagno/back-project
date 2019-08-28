@@ -20,11 +20,13 @@ class GameController {
   }
 
   selectCard(index) {
-    GameState.hand.select(index);
+    if (!GameState.action) {
+      GameState.hand.select(index);
+    }
   }
 
-  discardHand() {
-    GameState.hand.discardAll();
+  commitToCard() {
+    GameState.action = GameState.hand.getSelectedCard().front;
   }
 
   activateCard() {
@@ -35,6 +37,10 @@ class GameController {
   activateBackOfCard() {
     const result = GameState.hand.getSelectedCard().executeBackAction(GameState);
     console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+  }
+
+  discardHand() {
+    GameState.hand.discardAll();
   }
 
   gameOver() {

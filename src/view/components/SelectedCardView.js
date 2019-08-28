@@ -13,6 +13,6 @@ export default class SelectedCardView {
     this.baseElement.appendChild(createImage('', 'cave-selected-card-image', selectedCard.image));
     this.baseElement.appendChild(createElement('div', '', 'cave-selected-card-description', selectedCard.description));
 
-    this.baseElement.onclick = Router.activateCard;
+    this.baseElement.onclick = Router.commitToCard;
   }
 }

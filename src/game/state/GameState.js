@@ -5,6 +5,7 @@ class GameState {
   initialize() {
     this.hero = Hero;
     this.hand = new Hand(HandSize);
+    this.action = undefined;
     this.battle = undefined;
   }
 }
