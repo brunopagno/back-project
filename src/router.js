@@ -39,6 +39,11 @@ class Router {
     GameController.activateBackOfCard();
     Back.draw();
   }
+
+  cleanupRound() {
+    GameController.cleanupRound();
+    Back.draw();
+  }
 }
 
 const instance = new Router();

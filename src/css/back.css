@@ -26,6 +26,7 @@ body {
 
 img {
   image-rendering: pixelated;
+  image-rendering: crisp-edges;
 }
 
 #game-view {

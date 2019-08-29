@@ -10,9 +10,9 @@ export default class SelectedBackView {
     this.baseElement.innerHTML = '';
 
     this.baseElement.appendChild(createElement('div', '', 'cave-selected-back-title', selectedCard.name));
-    this.baseElement.appendChild(createElement('div', '', 'cave-selected-back-description', selectedCard.description));
+    this.baseElement.appendChild(createElement('div', '', 'cave-selected-back-description', 'THIS IS THE BACK OF THE CARD'));
     this.baseElement.appendChild(createElement('div', '', 'cave-action-back-description', selectedCard.back.description));
 
-    this.baseElement.onclick = Router.commitToCard;
+    this.baseElement.onclick = Router.activateBackOfCard;
   }
 }

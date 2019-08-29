@@ -79,6 +79,10 @@
   max-width: var(--cave-card-width);
   cursor: pointer;
 }
+.cave-selected-back-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
 .cave-selected-back-description {
   padding-bottom: 4px;
   border-top: 2px solid var(--card-border-color);

@@ -42,10 +42,13 @@ class GameController {
 
   activateBackOfCard() {
     const result = GameState.hand.getSelectedCard().executeBackAction(GameState);
+    GameState.backAction.finished = true;
   }
 
-  discardHand() {
+  cleanupRound() {
     GameState.hand.discardAll();
+    GameState.setFrontAction(undefined);
+    GameState.setBackAction(undefined);
   }
 
   gameOver() {
