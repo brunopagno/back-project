@@ -1,5 +1,6 @@
 import Back from './back';
 import GameController from './game/controllers/GameController';
+import BattleController from './game/controllers/BattleController';
 
 class Router {
   newGame() {
@@ -42,6 +43,19 @@ class Router {
 
   cleanupRound() {
     GameController.cleanupRound();
+    Back.draw();
+  }
+
+  selectMagic(index) {
+    BattleController.selectMagic(index);
+    BattleController.activateMagicCard();
+    Back.draw();
+  }
+
+  activateBackOfMagic(resetTurn) {
+    BattleController.activateBackOfMagicCard();
+    BattleController.switchActorAndTarget();
+    if (resetTurn) BattleController.resetTurn();
     Back.draw();
   }
 }

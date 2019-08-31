@@ -1,22 +1,29 @@
 import GameState from '../state/GameState';
+import ActiveAction from '../entities/ActiveAction';
 
-export default class BattleController {
-  startBattle(battle) {
-    GameState.battle = battle;
+class BattleController {
+  selectMagic(index) {
+    GameState.battle.setCurrentMagic(
+      new ActiveAction(GameState.battle.currentActor.grimoire.getMagic(index)),
+    );
   }
 
-  selectMagic(index, owner) {
-    owner.grimoire.selectMagic(index);
+  activateMagicCard() {
+    GameState.battle.selectedMagic.action.executeFrontAction(GameState);
+    GameState.battle.selectedMagic.finished = true;
   }
 
-  activateMagicCard(card) {
-    const result = card.executeFrontAction();
-    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+  activateBackOfMagicCard() {
+    GameState.battle.selectedMagic.action.executeBackAction(GameState);
+    GameState.battle.selectedMagic.finished = true;
   }
 
-  activateBackOfMagicCard(card) {
-    const result = card.executeBackAction();
-    console.log('FIGURE OUT WHAT TO DO WITH: ', result);
+  switchActorAndTarget() {
+    GameState.battle.switchActorAndTarget();
+  }
+
+  resetTurn() {
+    GameState.battle.clearSelectedMagics();
   }
 
   finishBattle() {
@@ -24,3 +31,6 @@ export default class BattleController {
     GameState.battle = undefined;
   }
 }
+
+const instance = new BattleController();
+export default instance;

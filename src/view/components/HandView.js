@@ -4,7 +4,6 @@ import CardView from './CardView';
 export default class HandView {
   constructor(baseElement) {
     this.baseElement = baseElement;
-    this.className = 'hand-card';
   }
 
   draw(hand) {
@@ -15,12 +14,12 @@ export default class HandView {
 
     if (hand.cards && hand.cards.length > 0) {
       hand.cards.forEach((card, index) => {
-        const cardElement = createElement('div', '', this.className);
+        const cardElement = createElement('div', '', 'hand-card');
         if (hand.hasSelectedCard() && index !== hand.selectedIndex) {
           cardElement.setAttribute('disabled', true);
         }
         const cardView = new CardView(cardElement, index);
-        cardView.draw(this.className, card.name, card.image);
+        cardView.draw(card.name, card.image);
         container.appendChild(cardElement);
       });
     } else {

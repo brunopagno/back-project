@@ -1,4 +1,4 @@
-import { createElement } from '../ViewHelper';
+import { createElement, createImage } from '../ViewHelper';
 
 export default class GrimoireView {
   constructor(baseElement) {
@@ -14,9 +14,8 @@ export default class GrimoireView {
     if (magics && magics.length > 0) {
       magics.forEach((magic) => {
         const magicElement = createElement('div', '', 'grimoire-magic');
-        magicElement.appendChild(createElement('div', '', 'grimoire-magic-title', magic.name));
-        magicElement.appendChild(createElement('div', '', 'grimoire-magic-description', magic.description));
-        magicElement.appendChild(createElement('div', '', 'grimoire-magic-action', magic.action));
+        magicElement.appendChild(createImage('', 'card-image', magic.image));
+        magicElement.appendChild(createElement('div', '', 'card-title', magic.name));
         grimoireMagicsElement.appendChild(magicElement);
       });
       this.baseElement.appendChild(grimoireMagicsElement);

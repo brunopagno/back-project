@@ -1,5 +1,6 @@
 import GameState from '../state/GameState';
 import ActiveAction from '../entities/ActiveAction';
+import Battle from '../entities/Battle';
 import { getRandomCard } from '../util';
 import * as CardList from '../data/cards';
 
@@ -32,6 +33,20 @@ class GameController {
 
   activateCard() {
     const result = GameState.hand.getSelectedCard().executeFrontAction(GameState);
+    if (result instanceof Battle) {
+      this.startBattle(result);
+    } else {
+      this.finishActiveCard();
+    }
+  }
+
+  startBattle(battle) {
+    GameState.battle = battle;
+    GameState.battle.setCurrentActor(GameState.hero);
+    GameState.battle.setCurrentTarget(battle.monster);
+  }
+
+  finishActiveCard() {
     GameState.frontAction.finished = true;
     this.commitToCardBack();
   }

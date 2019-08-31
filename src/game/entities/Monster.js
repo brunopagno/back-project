@@ -1,10 +1,12 @@
 import Living from './Living';
+import { sampleFromRange } from '../util';
 
 export default class Monster extends Living {
-  constructor(name, description, health, mana, grimoire) {
+  constructor(name, description, image, health, mana, grimoire) {
     super(health, mana, grimoire);
     this.name = name;
     this.description = description;
+    this.image = image;
   }
 
   getCurrentHealth() {
@@ -17,5 +19,9 @@ export default class Monster extends Living {
 
   getGrimoire() {
     return this.grimoire;
+  }
+
+  randomMagicIndex() {
+    return sampleFromRange(0, this.grimoire.magics.length - 1);
   }
 }

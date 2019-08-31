@@ -12,17 +12,4 @@
   margin: 4px;
   font-size: 0.7em;
   max-width: var(--card-width);
-  cursor: pointer;
-}
-.grimoire-magic-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  border-bottom: 1px solid var(--magic-border-color);
-  text-transform: uppercase;
-}
-.grimoire-magic-description {  
-  border-bottom: 1px solid var(--magic-border-color);
-}
-.grimoire-magic-action {
-  border-bottom: 1px solid var(--magic-border-color);
 }

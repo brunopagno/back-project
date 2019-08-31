@@ -1,13 +1,19 @@
 /* eslint-disable no-param-reassign */
+import Action from '../entities/Action';
 import { sampleFromRange } from '../util';
 
 export function CauseDamage(min, max) {
-  return function actuallyCauseDamage(_, target) {
-    target.currentHealth -= sampleFromRange(min, max);
-  };
+  return new Action(
+    'Cause damage',
+    (gameState) => {
+      gameState.battle.currentTarget.currentHealth -= sampleFromRange(min, max);
+    },
+  );
 }
 
-export function SayHiOnConsole(gameState, target, owner) {
-  console.log('Hi :)');
-  console.log({ gameState, target, owner });
-}
+export const SayHiOnConsole = new Action(
+  'Say hi on console :)',
+  () => {
+    console.log('Hi :)');
+  },
+);

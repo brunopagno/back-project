@@ -1,7 +1,6 @@
 export default class Grimoire {
   constructor(magics) {
     this.magics = magics || [];
-    this.selectedMagic = undefined;
   }
 
   addMagic(magic) {
@@ -10,13 +9,5 @@ export default class Grimoire {
 
   getMagic(index) {
     return this.magics[index];
-  }
-
-  selectMagic(index) {
-    this.selectedMagic = this.magics[index];
-  }
-
-  clearSelection() {
-    this.selectedMagic = undefined;
   }
 }

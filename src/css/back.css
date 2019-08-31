@@ -29,6 +29,10 @@ img {
   image-rendering: crisp-edges;
 }
 
+.ptr {
+  cursor: pointer;
+}
+
 #game-view {
   display: flex;
   min-width: 860px;
@@ -56,4 +60,24 @@ img {
 }
 .hero-mana {
   color: #572591;
+}
+
+.card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-bottom: 1px solid var(--card-border-color);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.card-image {
+  padding-bottom: 4px;
+  width: 98px;
+  height: 98px;
+  object-fit: contain;
+  align-self: center;
+}
+.card-image-holder {
+  align-self: center;
+  display: flex;
+  height: 98px;
 }

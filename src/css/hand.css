@@ -23,22 +23,3 @@
   color: var(--card-disabled-text-color);
   filter: grayscale();
 }
-.hand-card-title {
-  font-size: 1.2em;
-  font-weight: bold;
-  border-bottom: 1px solid var(--card-border-color);
-  margin-bottom: 4px;
-  text-transform: uppercase;
-}
-.hand-card-image {
-  padding-bottom: 4px;
-  width: 98px;
-  height: 98px;
-  object-fit: contain;
-  align-self: center;
-}
-.hand-card-image-holder {
-  align-self: center;
-  display: flex;
-  height: 98px;
-}
