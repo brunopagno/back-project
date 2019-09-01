@@ -14,10 +14,9 @@ export function createImage(id, className, src) {
   return element;
 }
 
-export function createButton(id, className, text, onclick) {
+export function createButton(text, onclick) {
   const element = document.createElement('div');
-  element.id = id || '';
-  element.className = className || '';
+  element.className = 'button';
   element.innerText = text;
   element.onclick = onclick;
   return element;

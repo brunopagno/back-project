@@ -37,7 +37,7 @@ class BattleView {
         resultElement.innerText = 'You defeated the monster!';
       }
       battleElement.appendChild(resultElement);
-      battleElement.appendChild(createButton('', '', 'Continue to cave', () => Router.finishBattle('GameView')));
+      battleElement.appendChild(createButton('Continue to cave', () => Router.finishBattle('GameView')));
     } else {
       const monsterElement = createElement('div', 'battle-monster');
       const monsterView = new MonsterView(monsterElement);
@@ -46,14 +46,14 @@ class BattleView {
 
       if (GameState.battle.currentActor instanceof Monster) {
         if (GameState.battle.selectedMagic && GameState.battle.selectedMagic.hasFinished()) {
-          const continueButton = createButton('', '', 'continue with monster back', () => Router.activateBackOfMagic(true));
+          const continueButton = createButton('continue with monster back', () => Router.activateBackOfMagic(true));
           battleElement.appendChild(continueButton);
         } else {
-          const continueButton = createButton('', '', 'continue with monster stuff', () => Router.selectMagic(GameState.battle.currentActor.randomMagicIndex()));
+          const continueButton = createButton('continue with monster stuff', () => Router.selectMagic(GameState.battle.currentActor.randomMagicIndex()));
           battleElement.appendChild(continueButton);
         }
       } else if (GameState.battle.selectedMagic && GameState.battle.selectedMagic.hasFinished()) {
-        const continueButton = createButton('', '', 'continue', Router.activateBackOfMagic);
+        const continueButton = createButton('continue', Router.activateBackOfMagic);
         battleElement.appendChild(continueButton);
       }
 

@@ -30,9 +30,6 @@
   border-top: 2px solid var(--card-border-color);
   border-bottom: 2px solid var(--card-border-color);
 }
-.cave-selected-card-action {
-  padding-bottom: 4px;
-}
 .cave-action-description {
   padding: 12px;
   text-align: right;
@@ -49,23 +46,6 @@
   font-weight: bolder;
   cursor: pointer;
   padding: 12px;
-}
-
-#cave-button {
-  display: inline-block;
-  border: 2px solid #8294eb;
-  border-radius: 4px;
-  background: #92a1ecab;
-  font-size: 1.2em;
-  font-weight: bold;
-  margin: 4px;
-  padding: 12px;
-  cursor: pointer;
-}
-#cave-button:hover {
-  color: #999999;
-  border: 2px solid #e4e4e4;
-  background: #e4e4e459;
 }
 
 #cave-selected-back {

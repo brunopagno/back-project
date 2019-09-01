@@ -12,8 +12,7 @@ export default class CaveView {
     this.baseElement.innerHTML = '';
 
     if (!gameState.hand.hasCards()) {
-      const caveButton = createElement('div', 'cave-button', '', 'Next!');
-      caveButton.onclick = Router.drawCards;
+      const caveButton = createButton('Next!', Router.drawCards);
       this.baseElement.appendChild(caveButton);
     }
 
@@ -27,7 +26,7 @@ export default class CaveView {
 
         if (gameState.frontAction && !gameState.frontAction.hasFinished()) {
           this.baseElement.appendChild(createElement('div', '', 'cave-action-description', gameState.frontAction.action.description));
-          this.baseElement.appendChild(createButton('', 'cave-action-ok', 'Continue', Router.activateCard));
+          this.baseElement.appendChild(createButton('Continue', Router.activateCard));
         }
       } else if (gameState.backAction) {
         const selectedBackElement = createElement('div', 'cave-selected-back');
@@ -37,7 +36,7 @@ export default class CaveView {
         selectedBackView.draw(gameState.hand.getSelectedCard());
 
         if (gameState.backAction.hasFinished()) {
-          this.baseElement.appendChild(createButton('', 'cleanup-cave', 'Okay, finishing this round!', Router.cleanupRound));
+          this.baseElement.appendChild(createButton('Okay, finishing this round!', Router.cleanupRound));
         }
       }
     }
