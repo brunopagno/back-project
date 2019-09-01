@@ -5,10 +5,12 @@ import './css/grimoire.css';
 import './css/hand.css';
 
 import OpeningView from './view/OpeningView';
+import GameOver from './view/GameOver';
 import GameView from './view/GameView';
 import BattleView from './view/BattleView';
 
 Router.registerView('OpeningView', OpeningView);
+Router.registerView('GameOver', GameOver);
 Router.registerView('GameView', GameView);
 Router.registerView('BattleView', BattleView);
 

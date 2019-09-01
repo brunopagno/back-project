@@ -56,6 +56,9 @@ class GameController {
 
   activateBackOfCard() {
     const result = GameState.hand.getSelectedCard().executeBackAction(GameState);
+    if (result instanceof Battle) {
+      this.startBattle(result);
+    }
     GameState.backAction.finished = true;
   }
 
@@ -66,7 +69,6 @@ class GameController {
   }
 
   gameOver() {
-    console.log('GAME OVER =/');
     GameState.initialize();
   }
 }

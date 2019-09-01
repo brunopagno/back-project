@@ -13,7 +13,11 @@ class BattleView {
 
   draw() {
     if (!GameState.battle) {
-      Router.changeView('GameView');
+      if (GameState.hero.isDead()) {
+        Router.changeView('GameOver');
+      } else {
+        Router.changeView('GameView');
+      }
       return;
     }
 
