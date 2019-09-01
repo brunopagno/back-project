@@ -14,7 +14,7 @@ export default class GrimoireView {
     if (magics && magics.length > 0) {
       magics.forEach((magic) => {
         const magicElement = createElement('div', '', 'grimoire-magic');
-        magicElement.appendChild(createImage('', 'card-image', magic.image));
+        magicElement.appendChild(createImage('card-image', magic.image));
         magicElement.appendChild(createElement('div', '', 'card-title', magic.name));
         grimoireMagicsElement.appendChild(magicElement);
       });

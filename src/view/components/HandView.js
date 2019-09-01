@@ -14,7 +14,7 @@ export default class HandView {
 
     if (hand.cards && hand.cards.length > 0) {
       hand.cards.forEach((card, index) => {
-        const cardElement = createElement('div', '', 'hand-card');
+        const cardElement = createElement('div', '', 'card');
         if (hand.hasSelectedCard() && index !== hand.selectedIndex) {
           cardElement.setAttribute('disabled', true);
         }

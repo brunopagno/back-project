@@ -6,9 +6,8 @@ export function createElement(tag, id, className, text) {
   return element;
 }
 
-export function createImage(id, className, src) {
+export function createImage(className, src) {
   const element = document.createElement('img');
-  element.id = id || '';
   element.className = className || '';
   element.src = src || '';
   return element;
@@ -19,5 +18,12 @@ export function createButton(text, onclick) {
   element.className = 'button';
   element.innerText = text;
   element.onclick = onclick;
+  return element;
+}
+
+export function createMessage(text) {
+  const element = document.createElement('div');
+  element.className = 'message';
+  element.innerText = text;
   return element;
 }

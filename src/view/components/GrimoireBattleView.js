@@ -16,7 +16,7 @@ export default class GrimoireView {
       const magicElement = createElement('div', '', 'grimoire-magic ptr');
       magicElement.appendChild(createElement('div', '', 'grimoire-magic-title', magic.name));
       magicElement.appendChild(createElement('div', '', 'grimoire-magic-description', magic.description));
-      magicElement.appendChild(createImage('', 'grimoire-magic-action', magic.image));
+      magicElement.appendChild(createImage('grimoire-magic-action', magic.image));
       magicElement.onclick = () => Router.selectMagic(index);
       grimoireMagicsElement.appendChild(magicElement);
     });

@@ -1,4 +1,4 @@
-import { createElement, createButton } from '../ViewHelper';
+import { createElement, createButton, createMessage } from '../ViewHelper';
 import Router from '../../router';
 import SelectedCardView from './SelectedCardView';
 import SelectedBackView from './SelectedBackView';
@@ -18,18 +18,18 @@ export default class CaveView {
 
     if (gameState.hand.hasSelectedCard()) {
       if (gameState.hand.hasSelectedCard && !gameState.hasBackAction()) {
-        const selectedCardElement = createElement('div', 'cave-selected-card');
+        const selectedCardElement = createElement('div', '', 'card card-big');
 
         const selectedCardView = new SelectedCardView(selectedCardElement);
         this.baseElement.appendChild(selectedCardElement);
         selectedCardView.draw(gameState.hand.getSelectedCard());
 
         if (gameState.frontAction && !gameState.frontAction.hasFinished()) {
-          this.baseElement.appendChild(createElement('div', '', 'cave-action-description', gameState.frontAction.action.description));
+          this.baseElement.appendChild(createMessage(gameState.frontAction.action.description));
           this.baseElement.appendChild(createButton('Continue', Router.activateCard));
         }
       } else if (gameState.backAction) {
-        const selectedBackElement = createElement('div', 'cave-selected-back');
+        const selectedBackElement = createElement('div', '', 'card card-big');
 
         const selectedBackView = new SelectedBackView(selectedBackElement);
         this.baseElement.appendChild(selectedBackElement);

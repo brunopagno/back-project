@@ -1,8 +1,5 @@
 import Router from './router';
 import './css/back.css';
-import './css/cave.css';
-import './css/grimoire.css';
-import './css/hand.css';
 
 import OpeningView from './view/OpeningView';
 import GameOver from './view/GameOver';

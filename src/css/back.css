@@ -2,6 +2,8 @@
   --theme-border-color: #3147af;
 
   --card-border-color: #3a3a30;
+  --card-border-hover: #a01499;
+  --card-body-hover: #fdfaeb;
   --card-body-color: #e4dec3;
   --card-text-color: black;
   --card-disabled-border-color: #9e9e9e;
@@ -9,6 +11,10 @@
   --card-disabled-text-color: #808080;
   --card-width: 110px;
   --cave-card-width: 180px;
+  --cave-card-height: 240px;
+
+  --message-body-color: #31312d;
+  --message-text-color: #fafae7;
 
   --magic-border-color: #6e3574;
   --magic-body-color: #f1b8d5;
@@ -48,6 +54,14 @@ img {
   border: 2px solid #e4e4e4;
   background: #e4e4e459;
 }
+.message {
+  margin: 4px;
+  padding: 12px;
+  text-align: right;
+  background-color: var(--message-body-color);
+  color: var(--message-text-color);
+  font-weight: bold;
+}
 
 #game-view {
   display: flex;
@@ -78,13 +92,44 @@ img {
   color: #572591;
 }
 
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 8px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+  color: var(--card-text-color);
+  padding: 8px;
+  margin: 4px;
+  width: var(--card-width);
+  cursor: pointer;
+}
+.card:hover {
+  border-color: var(--card-border-hover);
+  background-color: var(--card-body-hover);
+}
+.card-small {
+  flex: 1;
+  font-size: 0.7em;
+}
+.card-big {
+  border: 12px solid var(--card-border-color);
+  width: var(--cave-card-width);
+  height: var(--cave-card-height);
+}
+.card[disabled] {
+  border-color: var(--card-disabled-border-color);
+  background-color: var(--card-disabled-body-color);
+  color: var(--card-disabled-text-color);
+  filter: grayscale();
+}
+
 .card-title {
-  font-size: 1.2em;
   font-weight: bold;
   border-bottom: 1px solid var(--card-border-color);
   margin-bottom: 4px;
   text-transform: uppercase;
 }
+.card-title-big { font-size: 1.2em; }
 .card-image {
   padding-bottom: 4px;
   width: 98px;
@@ -92,8 +137,78 @@ img {
   object-fit: contain;
   align-self: center;
 }
+.card-image-big { width: 120px; height: 120px; }
 .card-image-holder {
   align-self: center;
   display: flex;
   height: 98px;
+}
+.card-description {
+  padding-bottom: 4px;
+  border-top: 1px solid var(--card-border-color);
+  border-bottom: 1px solid var(--card-border-color);
+}
+
+#cave-view {
+  padding: 12px;
+  min-height: 320px;
+}
+.cave-action-ok {
+  text-align: right;
+  text-transform: uppercase;
+  text-decoration: underline;
+  font-size: 1.3em;
+  font-weight: bolder;
+  cursor: pointer;
+  padding: 12px;
+}
+
+#cave-selected-back {
+  display: flex;
+  flex-direction: column;
+  border: 12px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+  color: var(--card-text-color);
+  padding: 8px;
+  margin: 4px;
+  max-width: var(--cave-card-width);
+  cursor: pointer;
+}
+.cave-selected-back-title {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cave-selected-back-description {
+  padding-bottom: 4px;
+  border-top: 2px solid var(--card-border-color);
+  border-bottom: 2px solid var(--card-border-color);
+}
+.cave-action-back-description {
+  padding: 12px;
+  text-align: right;
+  color: var(--card-text-color);
+  font-weight: bold;
+}
+
+#grimoire-view {
+  margin-top: 8px;
+  display: block;
+}
+.grimoire-magic {
+  display: inline-block;
+  border: 8px solid var(--magic-border-color);
+  border-radius: 32px;
+  background-color: var(--magic-body-color);
+  color: var(--card-text-color);
+  padding: 16px;
+  margin: 4px;
+  font-size: 0.7em;
+  max-width: var(--card-width);
+}
+
+#hand-view {
+  padding: 12px;
+}
+.hand-view-container {
+  display: flex;
 }

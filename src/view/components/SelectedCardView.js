@@ -9,9 +9,9 @@ export default class SelectedCardView {
   draw(selectedCard) {
     this.baseElement.innerHTML = '';
 
-    this.baseElement.appendChild(createElement('div', '', 'cave-selected-card-title', selectedCard.name));
-    this.baseElement.appendChild(createImage('', 'cave-selected-card-image', selectedCard.image));
-    this.baseElement.appendChild(createElement('div', '', 'cave-selected-card-description', selectedCard.description));
+    this.baseElement.appendChild(createElement('div', '', 'card-title card-title-big', selectedCard.name));
+    this.baseElement.appendChild(createImage('card-image card-image-big', selectedCard.image));
+    this.baseElement.appendChild(createElement('div', '', 'card-description', selectedCard.description));
 
     this.baseElement.onclick = Router.commitToCard;
   }
