@@ -6,4 +6,8 @@ export default class Living {
     this.currentMana = mana;
     this.grimoire = grimoire;
   }
+
+  isDead() {
+    return this.currentHealth <= 0;
+  }
 }

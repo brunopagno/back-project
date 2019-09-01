@@ -1,6 +1,7 @@
 export default class Battle {
   constructor(monster) {
     this.monster = monster;
+    this.isFinished = false;
 
     this.currentActor = undefined;
     this.currentTarget = undefined;
@@ -22,11 +23,19 @@ export default class Battle {
     this.currentTarget = living;
   }
 
-  setCurrentMagic(card) {
+  hasSelectedMagic() {
+    return !!this.selectedMagic;
+  }
+
+  selectMagic(card) {
     this.selectedMagic = card;
   }
 
   clearSelectedMagics() {
     this.selectedMagic = undefined;
+  }
+
+  finish() {
+    this.isFinished = true;
   }
 }

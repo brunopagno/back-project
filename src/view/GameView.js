@@ -1,5 +1,4 @@
 import Router from '../router';
-import BattleView from './BattleView';
 import CaveView from './components/CaveView';
 import HandView from './components/HandView';
 import HeroView from './components/HeroView';
@@ -8,13 +7,12 @@ import { createElement } from './ViewHelper';
 
 class GameView {
   initialize(id) {
-    Router.newGame();
     this.rootElement = document.getElementById(id);
   }
 
   draw() {
     if (GameState.battle) {
-      Router.changeView(BattleView);
+      Router.changeView('BattleView');
       return;
     }
     this.rootElement.innerHTML = '';

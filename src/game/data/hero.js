@@ -8,7 +8,7 @@ export default new Hero(
   100,      // mana
   20,       // mana regen rate
   [         // default magics
-    MagicPunch,
+    MagicPunch(),
   ],
 );
 

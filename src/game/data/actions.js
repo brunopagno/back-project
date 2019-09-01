@@ -12,15 +12,15 @@ export const Nothing = new Action(
 export const Loot = new Action(
   'You get a new magic for your grimoire!',
   (gameState) => {
-    const magic = sample(Object.values(Magics));
-    gameState.hero.addMagicToGrimoire(magic);
+    const magicFactory = sample(Object.values(Magics));
+    gameState.hero.addMagicToGrimoire(magicFactory());
   },
 );
 
 export const StartBattle = new Action(
   'A wild monster accepts your duel!',
   () => {
-    const monster = sample(Object.values(Monsters));
-    return new Battle(monster);
+    const monsterFactory = sample(Object.values(Monsters));
+    return new Battle(monsterFactory());
   },
 );

@@ -3,12 +3,20 @@ import GameController from './game/controllers/GameController';
 import BattleController from './game/controllers/BattleController';
 
 class Router {
+  constructor() {
+    this.views = {};
+  }
+
+  registerView(name, view) {
+    this.views[name] = view;
+  }
+
   newGame() {
     GameController.newGame();
   }
 
   changeView(view) {
-    Back.changeView(view, 'back');
+    Back.changeView(this.views[view], 'back');
   }
 
   drawCards() {
@@ -48,14 +56,16 @@ class Router {
 
   selectMagic(index) {
     BattleController.selectMagic(index);
-    BattleController.activateMagicCard();
     Back.draw();
   }
 
   activateBackOfMagic(resetTurn) {
-    BattleController.activateBackOfMagicCard();
-    BattleController.switchActorAndTarget();
-    if (resetTurn) BattleController.resetTurn();
+    BattleController.activateBackOfMagicCard(resetTurn);
+    Back.draw();
+  }
+
+  finishBattle() {
+    BattleController.finishBattle();
     Back.draw();
   }
 }

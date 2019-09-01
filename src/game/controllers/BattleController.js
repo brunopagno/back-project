@@ -3,19 +3,27 @@ import ActiveAction from '../entities/ActiveAction';
 
 class BattleController {
   selectMagic(index) {
-    GameState.battle.setCurrentMagic(
-      new ActiveAction(GameState.battle.currentActor.grimoire.getMagic(index)),
-    );
+    if (!GameState.battle.hasSelectedMagic()) {
+      GameState.battle.selectMagic(
+        new ActiveAction(GameState.battle.currentActor.grimoire.getMagic(index)),
+      );
+      this.activateMagicCard();
+    }
   }
 
   activateMagicCard() {
     GameState.battle.selectedMagic.action.executeFrontAction(GameState);
     GameState.battle.selectedMagic.finished = true;
+
+    this.verifyIfBattleEnded();
   }
 
-  activateBackOfMagicCard() {
+  activateBackOfMagicCard(resetTurn) {
     GameState.battle.selectedMagic.action.executeBackAction(GameState);
     GameState.battle.selectedMagic.finished = true;
+
+    this.switchActorAndTarget();
+    if (resetTurn) this.resetTurn();
   }
 
   switchActorAndTarget() {
@@ -26,8 +34,13 @@ class BattleController {
     GameState.battle.clearSelectedMagics();
   }
 
+  verifyIfBattleEnded() {
+    if (GameState.hero.isDead() || GameState.battle.monster.isDead()) {
+      GameState.battle.finish();
+    }
+  }
+
   finishBattle() {
-    console.log('BATTLE IS OVER: ', GameState.battle);
     GameState.battle = undefined;
   }
 }

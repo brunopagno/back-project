@@ -1,4 +1,3 @@
-import GameView from './GameView';
 import Router from '../router';
 
 class OpeningView {
@@ -9,7 +8,7 @@ class OpeningView {
 
   draw() {
     const startGameButton = document.createElement('button');
-    startGameButton.onclick = () => Router.changeView(GameView);
+    startGameButton.onclick = () => Router.changeView('GameView');
     this.rootElement.appendChild(startGameButton);
   }
 }

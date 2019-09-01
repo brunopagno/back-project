@@ -35,9 +35,8 @@ class GameController {
     const result = GameState.hand.getSelectedCard().executeFrontAction(GameState);
     if (result instanceof Battle) {
       this.startBattle(result);
-    } else {
-      this.finishActiveCard();
     }
+    this.finishActiveCard();
   }
 
   startBattle(battle) {
