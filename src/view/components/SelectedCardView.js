@@ -2,8 +2,9 @@ import { createElement, createImage } from '../ViewHelper';
 import Router from '../../router';
 
 export default class SelectedCardView {
-  constructor(baseElement) {
+  constructor(baseElement, onclick) {
     this.baseElement = baseElement;
+    this.onclick = onclick;
   }
 
   draw(selectedCard) {

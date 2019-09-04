@@ -17,28 +17,49 @@ export default class CaveView {
     }
 
     if (gameState.hand.hasSelectedCard()) {
-      if (gameState.hand.hasSelectedCard && !gameState.hasBackAction()) {
-        const selectedCardElement = createElement('div', '', 'card card-big');
-
-        const selectedCardView = new SelectedCardView(selectedCardElement);
-        this.baseElement.appendChild(selectedCardElement);
-        selectedCardView.draw(gameState.hand.getSelectedCard());
-
-        if (gameState.frontAction && !gameState.frontAction.hasFinished()) {
-          this.baseElement.appendChild(createMessage(gameState.frontAction.action.description));
-          this.baseElement.appendChild(createButton('Continue', Router.activateCard));
-        }
-      } else if (gameState.backAction) {
-        const selectedBackElement = createElement('div', '', 'card card-big');
-
-        const selectedBackView = new SelectedBackView(selectedBackElement);
-        this.baseElement.appendChild(selectedBackElement);
-        selectedBackView.draw(gameState.hand.getSelectedCard());
-
-        if (gameState.backAction.hasFinished()) {
-          this.baseElement.appendChild(createButton('Okay, finishing this round!', Router.cleanupRound));
-        }
+      const cardElement = createElement('div', '', 'card-holder');
+      this.cardElementInner = createElement('div', '', 'card-inner');
+      if (gameState.backAction && gameState.backAction.hasFinished()) {
+        this.cardElementInner.classList.add('flipped');
       }
+
+      const cardFront = createElement('div', '', 'card-front');
+      const selectedCardElement = createElement('div', '', 'card');
+      cardFront.appendChild(selectedCardElement);
+
+      const selectedCardView = new SelectedCardView(selectedCardElement);
+      selectedCardView.draw(gameState.hand.getSelectedCard());
+
+      const cardBack = createElement('div', '', 'card-back');
+      const selectedBackElement = createElement('div', '', 'card');
+      cardBack.appendChild(selectedBackElement);
+
+      const selectedBackView = new SelectedBackView(selectedBackElement);
+      selectedBackView.draw(gameState.hand.getSelectedCard());
+
+      this.cardElementInner.appendChild(cardFront);
+      this.cardElementInner.appendChild(cardBack);
+      cardElement.appendChild(this.cardElementInner);
+
+      this.baseElement.appendChild(cardElement);
+
+      if (gameState.frontAction && !gameState.frontAction.hasFinished()) {
+        this.baseElement.appendChild(createMessage(gameState.frontAction.action.description));
+        this.baseElement.appendChild(createButton('Continue', Router.activateCard));
+      }
+
+      if (gameState.backAction && gameState.backAction.hasFinished()) {
+        this.baseElement.appendChild(createButton('Okay, finishing this round!', Router.cleanupRound));
+      }
+    }
+  }
+
+  afterDraw(gameState) {
+    if (gameState.frontAction
+        && gameState.frontAction.hasFinished()
+        && gameState.backAction
+        && !gameState.backAction.hasFinished()) {
+      this.cardElementInner.classList.toggle('flipped');
     }
   }
 }

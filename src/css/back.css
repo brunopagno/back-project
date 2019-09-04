@@ -10,8 +10,6 @@
   --card-disabled-body-color: #d3d3d3;
   --card-disabled-text-color: #808080;
   --card-width: 110px;
-  --cave-card-width: 180px;
-  --cave-card-height: 240px;
 
   --message-body-color: #31312d;
   --message-text-color: #fafae7;
@@ -92,29 +90,50 @@ img {
   color: #572591;
 }
 
+.card-holder{
+  width: 200px;
+  height: 240px;
+  perspective: 1000px;
+}
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.2s;
+  transform-style: preserve-3d;
+  border: 12px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card-back {
+  transform: rotateY(180deg);
+}
+.flipped {
+  transform: rotateY(180deg);
+}
 .card {
   display: flex;
   flex-direction: column;
-  border: 8px solid var(--card-border-color);
-  background-color: var(--card-body-color);
   color: var(--card-text-color);
   padding: 8px;
   margin: 4px;
-  width: var(--card-width);
   cursor: pointer;
 }
+.card-borders {
+  border: 8px solid var(--card-border-color);
+  background-color: var(--card-body-color);
+}
 .card:hover {
-  border-color: var(--card-border-hover);
   background-color: var(--card-body-hover);
 }
 .card-small {
   flex: 1;
   font-size: 0.7em;
-}
-.card-big {
-  border: 12px solid var(--card-border-color);
-  width: var(--cave-card-width);
-  height: var(--cave-card-height);
 }
 .card[disabled] {
   border-color: var(--card-disabled-border-color);

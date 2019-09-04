@@ -7,6 +7,12 @@ class Back {
 
   draw() {
     this.currentView.draw();
+    const self = this;
+    setTimeout(() => {
+      if (self.currentView.afterDraw) {
+        self.currentView.afterDraw();
+      }
+    }, 50);
   }
 }
 

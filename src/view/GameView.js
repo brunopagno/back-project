@@ -23,7 +23,7 @@ class GameView {
 
     const caveElement = createElement('div', 'cave-view');
     leftColumn.appendChild(caveElement);
-    const caveView = new CaveView(caveElement);
+    this.caveView = new CaveView(caveElement);
 
     const handElement = createElement('div', 'hand-view');
     leftColumn.appendChild(handElement);
@@ -37,9 +37,13 @@ class GameView {
     gameElement.appendChild(rightColumn);
     this.rootElement.appendChild(gameElement);
 
-    caveView.draw(GameState);
+    this.caveView.draw(GameState);
     handView.draw(GameState.hand);
     heroView.draw(GameState.hero);
+  }
+
+  afterDraw() {
+    this.caveView.afterDraw(GameState);
   }
 }
 
